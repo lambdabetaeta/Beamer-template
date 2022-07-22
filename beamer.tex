@@ -1,0 +1,91 @@
+\documentclass{beamer} % use [handout] option to stop pauses
+
+\usepackage[utf8]{inputenc}
+\usepackage{preamble}
+
+\title{Type Theory and Homotopy}
+\subtitle{I. Constructions and Dependence}
+\author{
+  G. A. Kavvos \inst{1}
+  \and
+  Alex Kavvotsky \inst{2}
+}
+\institute{
+  \inst{1} University of Bristol
+  \inst{2} Technological University of Elbonia
+}
+\titlegraphic{
+  \includegraphics[scale=0.1]{Bristol.png}
+}
+\date{Panhellenic Logic Symposium, 6--10 July 2022}
+
+
+\begin{document}
+
+
+% title page; necessary.
+\frame{\titlepage}
+
+
+\section{Intuitionism and Constructions}
+
+\begin{frame}
+  \frametitle{Intuitionism, Constructivism, and Type Theory}
+  
+  \begin{itemize}
+    \item Many different philosophies: Brouwerian intuitionism, Heyting
+      arithmetic, Russian constructivism, Bishop-style mathematics, etc. (see
+      Stanford Encyclopedia of Philosophy entries)
+
+    \item One common feature:
+      \begin{center}
+        \shadowbox{
+          \begin{minipage}{0.70\textwidth}
+            \centering
+            To prove that a mathematical object exists\\
+            you must show how to construct it.
+          \end{minipage}
+        }
+      \end{center}
+      
+    \item In particular, the details of the construction matter.
+      
+    \item Modern algebra: the structure of an isomorphism matters.
+
+    \item \textbf{Martin-L\"of Type Theory} (MLTT) was created as a
+      formalization of Bishop-style constructive mathematics.
+      
+    \item Less focus on \textbf{truth}, more focus on \textbf{proof}.
+
+    \item The \textbf{law of the excluded middle} (LEM) $\phi \lor \lnot \phi$
+      is rejected.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Two-column slide}
+  \begin{columns}
+  \column{0.5\textwidth}
+  This is a text in first column.
+  $$E=mc^2$$
+  \begin{itemize}
+  \item First item
+  \item Second item
+  \end{itemize}
+  
+  \column{0.5\textwidth}
+  This text will be in the second column
+  and on a second thoughts, this is a nice looking
+  layout in some cases.
+  \end{columns}
+  \end{frame}
+
+
+\begin{frame}
+  \frametitle{References}
+  \bibliographystyle{amsalpha}
+  \bibliography{refs.bib}
+  \nocite{martin-lof_1975}
+\end{frame}
+
+\end{document}

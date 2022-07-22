@@ -1,0 +1,115 @@
+
+%% Font stuff
+
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\usepackage{microtype}
+
+%% Various nice packages 
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{wasysym}
+\usepackage{stmaryrd}
+% \usepackage{fontawesome}
+% \usepackage{mleftright}
+\usepackage{xparse}
+% \usepackage{ifthen}
+% \usepackage{scalerel}
+% \usepackage{epigraph}
+% \usepackage{datetime}
+\usepackage{mathpartir}
+% \usepackage{enumitem}
+\usepackage{array}
+\usepackage{mathtools}
+% \usepackage{etoolbox}
+% \usepackage{thmtools}
+\usepackage{jmsdelim}
+\usepackage{fancybox}
+
+%% Messing with beamer
+
+\beamertemplatenavigationsymbolsempty 
+
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center,shadow=true]{title}
+		\usebeamerfont{title}
+		\scshape
+		\uppercase\expandafter{\romannumeral\insertsectionnumber\relax}.~\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+
+%% Colours
+
+\definecolor{Matterhorn}{RGB}{70,45,68}
+\definecolor{Cowboy}{RGB}{86,47,50}
+
+\definecolor{RegalBlue}{RGB}{3,69,117}
+\definecolor{RedDevil}{RGB}{134,1,17}
+
+\definecolor{IdiotPurple}{RGB}{102, 51, 102}
+\definecolor{FernGreen}{HTML}{467D5E}
+\definecolor{ThroneBlue}{RGB}{51, 51, 102}
+\definecolor{JustBlue}{RGB}{0,0,255}
+\definecolor{PermaRed}{RGB}{255, 102, 102}
+\definecolor{DogwoodRose}{HTML}{cc3366}
+\definecolor{MaizeCrayola}{RGB}{255, 204, 102}
+\definecolor{Black}{RGB}{0, 0, 0}
+
+% Bristol colours
+\definecolor{BristolURed}{HTML}{B01C2E}
+\definecolor{DarkBlue}{HTML}{002F5F}
+\definecolor{DarkPurple}{HTML}{42145F}
+\definecolor{DarkPink}{HTML}{772059}
+\definecolor{BrightPink}{HTML}{E0249A}
+\definecolor{BrightAqua}{HTML}{00C0B5}
+\definecolor{BrightPurple}{HTML}{9278D1}
+\definecolor{BrightBlue}{HTML}{0CC6DE}
+\definecolor{DarkLime}{HTML}{53682B}
+
+\hypersetup{breaklinks=true,colorlinks=true,linkcolor=RedDevil,urlcolor=RegalBlue, citecolor=RedDevil}
+
+\usecolortheme[named=BristolURed]{structure}
+
+%% def eq
+
+\NewDocumentCommand{\defeq}{}{\stackrel{\mathclap{\mbox{\tiny def}}}{=}}
+% \NewDocumentCommand{\deq}{}{\mathbin{{\color{black}{\equiv}}}}
+
+%% Environment for grammars
+%% Writing
+%%
+%%   \begin{grammar}
+%%     Term & P & Q \mid R \mid S \mid T
+%%   \end{grammar}
+%%
+%% produces
+%%
+%%   (Term) P ::= Q | R | S | T
+%%
+  
+\NewDocumentEnvironment{grammar}{}{%
+  \par\vspace{.5\baselineskip}
+  \begin{tabular}{>{\itshape(}l<{)} >{$}l<{$} @{\quad $\Coloneqq$\quad } >{$}l<{$}}%
+}{%
+  \end{tabular}%
+  \par\vspace{.5\baselineskip}
+}
+
+\makeatletter
+\def\rightharpoonupfill@{\arrowfill@\relbar\relbar\rightharpoonup}
+\newcommand{\overrightharpoonup}{\mathpalette{\overarrow@\rightharpoonupfill@}}
+\makeatother
+
+\NewDocumentCommand\JdgFrame{m}{%
+  \fbox{$\displaystyle #1$}
+}
