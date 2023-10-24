@@ -1,9 +1,50 @@
-
 %% Font stuff
 
-\usepackage[T1]{fontenc}
-\usepackage{libertine}
 \usepackage{microtype}
+% font settings
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+  \setmainfont{Linux Libertine}
+  \setsansfont{Linux Biolinum}
+  \setmonofont[Contextuals=Alternate,Scale=MatchUppercase]{PragmataPro Liga}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage{libertine}
+\fi
+
+%% setting up minted for Haskell
+
+\usepackage{minted}
+\usemintedstyle{tango}
+\newminted{haskell}{
+  xleftmargin=2em, baselinestretch=1.2, fontfamily=tt, fontsize=\normalfont,
+  encoding=utf8
+}
+% sigh
+% https://tex.stackexchange.com/questions/343494/minted-red-box-around-greek-characters
+\usepackage{etoolbox, xpatch}
+\makeatletter
+  \AtBeginEnvironment{minted}{\dontdofcolorbox}
+  \def\dontdofcolorbox{\renewcommand\fcolorbox[4][]{##4}}
+  \xpatchcmd{\inputminted}{\minted@fvset}{\minted@fvset\dontdofcolorbox}{}{}
+  \xpatchcmd{\mintinline}{\minted@fvset}{\minted@fvset\dontdofcolorbox}{}{} % see https://tex.stackexchange.com/a/401250/
+\makeatother
+
+%% bibtex
+
+\RequirePackage[
+  backend=biber,
+  doi=true,
+  citestyle=alphabetic,
+  backref=true,
+  sortcites=true,
+  style=alphabetic,
+  maxnames=1000,
+  mincrossrefs=99,
+  sorting=nyt,
+  sortcites
+]{biblatex}
 
 %% Various nice packages 
 
@@ -46,7 +87,6 @@
   \vfill
   \end{frame}
 }
-
 
 %% Colours
 
